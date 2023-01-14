@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Record Store</title>
+</head>
+<body>
+<h1 style="font-family: Arial, Helvetica, sans-serif;">Joe Records</h1>
+<form method="get" action="{% url 'find' %}">
+          <div class="form-group row">
+            <div class="col-12">
+              <input class="form-control"
+                    type="search" value="{{ request.GET.term }}"
+                    id="search-input"
+                    placeholder="Digite sua pesquisa"
+                    name="term">
+            </div>
+          </div>
+        </form>
+<table style="font-family: Arial, Helvetica, sans-serif; font-size: 16px;">
+  <thead>
+    <tr>
+      <th>Disc</th>
+      <th>Artist</th>
+      <th>Label</th>
+      <th>Release</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for status in rec  %}
+    <tr>
+      <td>
+        <a href="{% url 'credits' status.id %}">{{ status.disc }}</a>
+      </td>
+      <td>{{ status.artist }}</td>
+      <td>{{ status.label }}</td>
+      <td>{{ status.release }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+</body>
+</html>
