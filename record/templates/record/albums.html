@@ -1,24 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Record Store</title>
-</head>
-<body>
+{% extends 'base.html' %}
+
+{% block content %}
 <h1 style="font-family: Arial, Helvetica, sans-serif;">Joe Records</h1>
-<form method="get" action="{% url 'find' %}">
-          <div class="form-group row">
-            <div class="col-12">
-              <input class="form-control"
-                    type="search" value="{{ request.GET.term }}"
-                    id="search-input"
-                    placeholder="Digite sua pesquisa"
-                    name="term">
-            </div>
-          </div>
-        </form>
+
 <table style="font-family: Arial, Helvetica, sans-serif; font-size: 16px;">
   <thead>
     <tr>
@@ -36,11 +20,10 @@
       </td>
       <td>{{ status.artist }}</td>
       <td>{{ status.label }}</td>
-      <td>{{ status.release }}</td>
+      <td>{{ status.release |date:'Y/m/d' }}</td>
     </tr>
     {% endfor %}
   </tbody>
 </table>
-</body>
-</html>
 
+{% endblock %}

@@ -15,6 +15,7 @@ class Credits(models.Model):
     label = models.CharField(max_length=50)
     release = models.DateTimeField(default=timezone.now)
     show = models.BooleanField(default=True)
+    picture = models.ImageField(blank=True, upload_to='pictures/%Y/%m/')
 
     def __str__(self) -> str:
         return self.artist
