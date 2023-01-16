@@ -6,21 +6,21 @@
 <table style="font-family: Arial, Helvetica, sans-serif; font-size: 16px; margin-inline: auto;">
   <thead>
     <tr>
-      <th style="padding: 0px 75px;">Disc</th>
-      <th style="padding: 0px 75px;">Artist</th>
-      <th style="padding: 0px 75px;">Label</th>
-      <th style="padding: 0px 75px;">Release</th>
+      <th style="text-align: left;">Disc</th>
+      <th style="text-align: left;">Artist</th>
+      <th style="text-align: left;">Label</th>
+      <th style="text-align: left;">Release</th>
     </tr>
   </thead>
   <tbody>
     {% for status in rec  %}
     <tr>
-      <td>
+      <td style="text-align: left;">
         <a href="{% url 'credits' status.id %}">{{ status.disc }}</a>
       </td>
-      <td>{{ status.artist }}</td>
-      <td>{{ status.label }}</td>
-      <td>{{ status.release |date:'Y/m/d' }}</td>
+      <td style="text-align: left;">{{ status.artist }}</td>
+      <td style="text-align: left;">{{ status.label }}</td>
+      <td style="text-align: left;">{{ status.release |date:'Y/m/d' }}</td>
     </tr>
     {% endfor %}
   </tbody>
